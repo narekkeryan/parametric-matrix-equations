@@ -4,6 +4,7 @@ import { random, matrixDerivative, factorial } from '../../utils/math';
 let A = [];
 let M = 2;
 let H = 1;
+let X = [];
 
 const init = (degree, m, h) => {
   M = m;
@@ -41,7 +42,13 @@ const init = (degree, m, h) => {
       ['t^2 - 4', '-2*t^2 + 3*t ']
     ]
   ];
+
+  X = [
+    ['2*t^2 - t + 2', 't^2 + 4'],
+    ['- 3*t^2 + 2*t - 1', '- 2*t^2 - 4']
+  ];
   console.log('A:', A);
+  console.log('X:', X);
   console.log('M:', M);
   console.log('H:', H);
   /* let t = 1;
@@ -62,10 +69,14 @@ const init = (degree, m, h) => {
   while (!epsilon) {
     // get derivatives for each matrix
     for (let i = 0; i < A.length; i++) {
-      console.log(A[i]);
-      console.log(matrixDerivative(A[i]));
+      console.log('-------------------------------');
+      console.log('A('+i+')', A[i]);
+      console.log('A\'('+i+')', matrixDerivative(A[i]));
       // Math.pow(H, K) * matrixDerivative(A[i]) / factorial(K);
     }
+    console.log('-------------------------------');
+    console.log('X', X);
+    console.log('X\'', matrixDerivative(X));
     epsilon = true;
   }
 };
