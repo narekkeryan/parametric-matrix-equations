@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import Equation from './Equation';
-import { init } from './script';
+import { init } from '../../utils/main';
 import './style.scss';
 
 class Matrix extends Component {

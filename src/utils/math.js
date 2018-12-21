@@ -23,9 +23,23 @@ const factorial = num => {
   return num * factorial(num - 1);
 };
 
+const matrixMultiply = (a, b) => {
+  let product = [];
+  // TODO: check if a can be multiplied by b
+  for (let i = 0; i < a.length; i++) {
+    product.push([]);
+    for (let j = 0; j < b[0].length; j++) {
+      product[i][j] = `(${a[i][j]}) * (${b[i][j]})`;
+    }
+  }
+  return product;
+  // return mathjs.multiply(a, b); 
+};
+
 export {
   random,
   matrixDerivative,
   derivative,
-  factorial
+  factorial,
+  matrixMultiply
 };

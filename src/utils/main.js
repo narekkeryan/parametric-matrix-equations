@@ -1,24 +1,16 @@
-import mathjs from 'mathjs';
-import { random, matrixDerivative, factorial } from '../../utils/math';
+// import mathjs from 'mathjs';
+import { /*random,*/ matrixDerivative, /*factorial,*/ matrixMultiply } from './math';
 
-let A = [];
+let A;
+let X;
+let Y;
 let M = 2;
 let H = 1;
-let X = [];
 
 const init = (degree, m, h) => {
   M = m;
   H = h;
-  /* for (let i = 0; i <= degree; i++) {
-    A.push([]);
-    for (let j = 0; j < m; j++) {
-      A[i].push([]);
-      for (let k = 0; k < m; k++) {
-        let r = random(0, 10);
-        A[i][j].push(r);
-      }
-    }
-  } */
+
   // TODO: change hardcode
   A = [
     [
@@ -47,10 +39,15 @@ const init = (degree, m, h) => {
     ['2*t^2 - t + 2', 't^2 + 4'],
     ['- 3*t^2 + 2*t - 1', '- 2*t^2 - 4']
   ];
+
+  Y = matrixMultiply(X, X);
+
   console.log('A:', A);
   console.log('X:', X);
+  console.log('Y:', Y);
   console.log('M:', M);
   console.log('H:', H);
+
   /* let t = 1;
   for (let i = 0; i <= 4; i++) {
     for (let j = 0; j < 2; j++) {
@@ -62,10 +59,10 @@ const init = (degree, m, h) => {
   console.log('t:', t);
   console.log('A:', A); */
 
-  console.log(factorial(5));
+  // console.log(factorial(5));
 
   // TODO: get derivatives, make dynamic
-  let epsilon = false, K = 1; // TODO: fact check possible values of K
+  let epsilon = false;//, K = 1; // TODO: fact check possible values of K
   while (!epsilon) {
     // get derivatives for each matrix
     for (let i = 0; i < A.length; i++) {
@@ -77,7 +74,18 @@ const init = (degree, m, h) => {
     console.log('-------------------------------');
     console.log('X', X);
     console.log('X\'', matrixDerivative(X));
+
+    console.log('-------------------------------');
+    console.log('Y', Y);
+    console.log('Y\'', matrixDerivative(Y));
     epsilon = true;
+  }
+
+  // TODO: make dynamic
+  // observe k = 0;
+  // observe q to 4
+  for (let i = 0; i <= 4; i++) {
+    
   }
 };
 
